@@ -1,4 +1,4 @@
-pdftotext -layout apt_list.pdf
+pdftotext -layout ../apt_list.pdf
 head -n 12693 apt_list.txt > apt_list.temp
 tail -n 12340 apt_list.temp > apt_list.txt
 rm apt_list.temp
