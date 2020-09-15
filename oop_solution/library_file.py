@@ -1,28 +1,28 @@
 import subprocess, os
 
-class threat_group():
+class ThreatGroup():
 	def __init__(self):
-		self.name = '[UNKNOWN]'
+		self.names = '[UNKNOWN]'
 		self.country = '[UNKNOWN]'
 		self.sponsor = '[UNKNOWN]'
 		self.observed = '[UNKNOWN]'
 		self.tools = '[UNKNOWN]'
 
 	# Setter functions
-	def set_name(self, value):
-		self.name = value
+	def set_names(self, value):
+		self.names = value
 	def set_country(self, value):
 		self.country = value
 	def set_sponsor(self, value):
 		self.sponsor = value
-	def set_obvserved(self, value):
+	def set_observed(self, value):
 		self.observed = value
 	def set_tools(self, value):
 		self.tools = value
 	
 	# Getter functions
-	def get_name(self):
-		return self.name
+	def get_names(self):
+		return self.names
 	def get_country(self):
 		return self.country
 	def get_sponsor(self):
