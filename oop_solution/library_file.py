@@ -1,5 +1,7 @@
 import subprocess, os
 
+# Create class which represents a threat group with a threat 
+# groups basic characteristics for the sake of this task
 class ThreatGroup():
 	def __init__(self):
 		self.names = '[UNKNOWN]'
@@ -32,6 +34,7 @@ class ThreatGroup():
 	def get_tools(self):
 		return self.tools
 
+# Function to clean data
 def clean_data():
 	subprocess.call('./script.sh', shell=True)
 	out_file = open('apt_list_cleaner.txt', 'w')
