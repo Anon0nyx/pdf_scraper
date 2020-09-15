@@ -39,5 +39,5 @@ def clean_data():
 	for line in in_file:
 		out_file.write(line.strip('\n'))
 	in_file.close()
-	os.system("perl -i -pe's/#Name#/\n#Name#/g' apt_list_cleaner.txt")
+	os.system("perl -i -pe's/#Names#/\n#Names#/g' apt_list_cleaner.txt")
 		
