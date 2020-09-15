@@ -1,10 +1,12 @@
+import subprocess, os
+
 class threat_group():
 	def __init__(self):
-		self.name = None
-		self.country = None
-		self.sponsor = None
-		self.observed = None
-		self.tools = None
+		self.name = '[UNKNOWN]'
+		self.country = '[UNKNOWN]'
+		self.sponsor = '[UNKNOWN]'
+		self.observed = '[UNKNOWN]'
+		self.tools = '[UNKNOWN]'
 
 	# Setter functions
 	def set_name(self, value):
@@ -30,4 +32,12 @@ class threat_group():
 	def get_tools(self):
 		return self.tools
 
-test = threat_group()
+def clean_data():
+	subprocess.call('./script.sh', shell=True)
+	out_file = open('apt_list_cleaner.txt', 'w')
+	in_file = open('apt_list.txt', encoding='utf8', errors='ignore')
+	for line in in_file:
+		out_file.write(line.strip('\n'))
+	in_file.close()
+	os.system("perl -i -pe's/#Name#/\n#Name#/g' apt_list_cleaner.txt")
+		
