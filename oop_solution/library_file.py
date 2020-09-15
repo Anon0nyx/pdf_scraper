@@ -41,4 +41,4 @@ def clean_data():
 	in_file.close()
 	os.system("perl -i -pe's/#Names#/\n#Names#/g' apt_list_cleaner.txt")
 	os.system("cp apt_list_cleaner.txt apt_list.txt")
-	os.system("rm apt_list_cleaner.txt")
+	os.system("rm apt_list_cleaner.txt ../apt_list.txt")
