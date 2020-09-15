@@ -41,7 +41,7 @@ def main():
 						threat_actor.set_tools(str(foobar[i+1]))
 
 			# Print the row to the csv file
-			writer.writerow({'Names': str(threat_actor.get_names()), 'Country': str(threat_actor.get_country()), 'Sponsor': str(threat_actor.get_sponsor()), 'Observed': str(threat_actor.get_observed()), 'Tools used': str(threat_actor.get_tools()) }) 
+				writer.writerow({'Names': str(threat_actor.get_names()), 'Country': str(threat_actor.get_country()), 'Sponsor': str(threat_actor.get_sponsor()), 'Observed': str(threat_actor.get_observed()), 'Tools used': str(threat_actor.get_tools()) }) 
 			count -= -1
 			
 	# Close the file
