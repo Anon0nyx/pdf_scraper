@@ -7,7 +7,7 @@ def main():
 
 	pdf_file = open('./apt_list.txt')
 	count = 0
-	with open('output.csv', 'w') as out_file:	
+	with open('output.csv', 'w') as out_file:
 		writer = csv.DictWriter(out_file, fieldnames=COLUMNS)
 		writer.writeheader()
 		for line in pdf_file:
@@ -22,7 +22,7 @@ def main():
 						pass
 					else:
 						foobar.append(item)
-				
+			
 				for i in range(len(foobar)):
 					if re.match('Names', str(foobar[i])) and not re.match('Country', str(foobar[i+1])):
 						threat_actor.set_names(str(foobar[i+1]))
@@ -34,7 +34,7 @@ def main():
 						threat_actor.set_observed(str(foobar[i+1]))
 					if re.match('Tools used', str(foobar[i])):
 						threat_actor.set_tools(str(foobar[i+1]))
-				writer.writerow({'Names': str(threat_actor.get_names()), 'Country': str(threat_actor.get_country()), 'Sponsor': str(threat_actor.get_sponsor()), 'Observed': str(threat_actor.get_observed()), 'Tools used': str(threat_actor.get_tools()) }) 
+			writer.writerow({'Names': str(threat_actor.get_names()), 'Country': str(threat_actor.get_country()), 'Sponsor': str(threat_actor.get_sponsor()), 'Observed': str(threat_actor.get_observed()), 'Tools used': str(threat_actor.get_tools()) }) 
 			count -= -1
 	out_file.close()
 
