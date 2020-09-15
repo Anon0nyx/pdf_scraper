@@ -1,7 +1,10 @@
 import library_file
 def main():
-	library_file.go()
-	library_file.do_math()
+	group = library_file.threat_group()
+	group.set_name('APT 1')
+	group.set_country('China')
+	print(group.get_name())
+	print(group.get_country())
 
 if __name__ == '__main__':
 	main()
