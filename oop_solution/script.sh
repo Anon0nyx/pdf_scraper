@@ -19,5 +19,3 @@ perl -i -pe's/^Counter/#Counter#/' apt_list.txt
 perl -i -pe's/^MITRE ATT&CK/#MITRE ATT&CK#/' apt_list.txt
 
 perl -i -pe'/^[[:space:]]*$/d' apt_list.txt
-
-grep '#Country#' apt_list.txt | awk '{print $NF}' > ./tmp/countries.temp
