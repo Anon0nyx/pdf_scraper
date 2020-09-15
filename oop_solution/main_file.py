@@ -3,12 +3,10 @@ import library_file, time, re, csv
 COLUMNS = [ 'Names', 'Country', 'Sponsor', 'Observed', 'Tools used' ]
 
 def main():
-	print('Cleaning Data')
 	library_file.clean_data()
 
 	pdf_file = open('./apt_list.txt')
 	count = 0
-	print('Creating CSV file -> output.csv')
 	with open('output.csv', 'w') as out_file:	
 		writer = csv.DictWriter(out_file, fieldnames=COLUMNS)
 		writer.writeheader()
@@ -39,7 +37,6 @@ def main():
 				writer.writerow({'Names': str(threat_actor.get_names()), 'Country': str(threat_actor.get_country()), 'Sponsor': str(threat_actor.get_sponsor()), 'Observed': str(threat_actor.get_observed()), 'Tools used': str(threat_actor.get_tools()) }) 
 			count -= -1
 	out_file.close()
-	print('PROCESS COMPLETE')
 
 if __name__ == '__main__':
 	main()
