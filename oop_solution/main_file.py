@@ -30,20 +30,20 @@ def main():
 				# a field and if it is keep the object value as [UNKNOWN]
 				for i in range(len(foobar)):
 					if re.match('Names', str(foobar[i])) and not re.match('Country', str(foobar[i+1])):
-						threat_actor.set_names(str(foobar[i+1]))
+						threat_actor.set_names(str(foobar[i+1]).strip('  '))
 					if re.match('Country', str(foobar[i])) and not re.match('Sponsor', str(foobar[i+1])):
-						threat_actor.set_country(str(foobar[i+1]))
+						threat_actor.set_country(str(foobar[i+1]).strip('  '))
 					if re.match('Sponsor', str(foobar[i])) and not re.match('Observed', str(foobar[i+1])):
-						threat_actor.set_sponsor(str(foobar[i+1]))
+						threat_actor.set_sponsor(str(foobar[i+1]).strip('  '))
 					if re.match('Observed', str(foobar[i])) and not re.match('Tools used', str(foobar[i+1])):
-						threat_actor.set_observed(str(foobar[i+1]))
+						threat_actor.set_observed(str(foobar[i+1]).strip('  '))
 					if re.match('Tools used', str(foobar[i])):
-						threat_actor.set_tools(str(foobar[i+1]))
-
-			# Print the row to the csv file
+						threat_actor.set_tools(str(foobar[i+1]).strip('  ').split('<', 1)[0])
+				
+				# Print the row to the csv file
 				writer.writerow({'Names': str(threat_actor.get_names()), 'Country': str(threat_actor.get_country()), 'Sponsor': str(threat_actor.get_sponsor()), 'Observed': str(threat_actor.get_observed()), 'Tools used': str(threat_actor.get_tools()) }) 
 			count -= -1
-			
+	
 	# Close the file
 	out_file.close()
 
